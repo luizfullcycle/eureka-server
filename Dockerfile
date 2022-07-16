@@ -1,5 +1,4 @@
-FROM  adoptopenjdk/openjdk11:alpine-jre
-RUN mkdir /opt/app
-COPY target/*.jar /opt/app
+FROM openjdk11 as build
+COPY target/*.jar app.jar
 EXPOSE 8761
-ENTRYPOINT ["java","-jar","/opt/app/eureka-server-0.0.1-SNAPSHOT.jar"]
+ENTRYPOINT ["java","-jar","/app.jar"]
