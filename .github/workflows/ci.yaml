@@ -59,6 +59,7 @@ jobs:
           git config --local user.email "luizfullcycle@gmail.com"
           git config --local user.name "Luiz Fernanandes de Oliveira Neto"
           git commit -am "Commit"
+          git push
 
       - name: Push changes
         uses: ad-m/github-push-action@master
