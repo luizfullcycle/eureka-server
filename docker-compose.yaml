@@ -1,0 +1,10 @@
+version: "3"
+services:
+  app:
+    build: 
+      dockerfile: .
+      context: .
+    image: netoow10/eureka-server:latest
+    ports:
+      - "8080:8080"
+    container_name: eureka-server
