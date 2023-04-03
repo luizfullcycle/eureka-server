@@ -1,0 +1,24 @@
+server:
+  port: 8761
+  servlet:
+    context-path: /registry
+spring:
+  application:
+    name: EUREKA-SERVER
+management:
+  endpoint:
+    prometheus:
+      enabled: true
+    health:
+      enabled: true
+      show-details: ALWAYS
+  endpoints:
+    web:
+      exposure:
+        include: "health,prometheus"
+eureka:
+   client:
+     fetch-registry: false
+     register-with-eureka: false
+     service-url:
+       defaultZone: http://host.docker.internal:8761/eureka
