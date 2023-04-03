@@ -6,5 +6,5 @@ services:
       context: .
     image: netoow10/eureka-server:latest
     ports:
-      - "8080:8080"
+      - "8761:8761"
     container_name: eureka-server
