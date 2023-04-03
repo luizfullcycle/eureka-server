@@ -56,8 +56,8 @@ jobs:
 
       - name: Commit    
         run: |
-          git config --local user.email "action@github.com"
-          git config --local user.name "Github action"
+          git config --local user.email "luizfullcycle@gmail.com"
+          git config --local user.name "Luiz Fernanandes de Oliveira Neto"
           git commit -am "Commit"
 
       - name: Push changes
