@@ -11,8 +11,9 @@ management:
       enabled: true
     health:
       enabled: true
-        show-details: ALWAYS
+      show-details: ALWAYS
     endpoints:
+      enabled-by-default: false
       web:
         exposure:
           include: "health,prometheus"

@@ -18,17 +18,22 @@ jobs:
         with:
           java-version: '17'
           distribution: 'corretto'
+      
       - name: Build with Maven
-        run: mvn --batch-mode --update-snapshots package
-      - name: Checkout
-        uses: actions/checkout@v3    
+        run: mvn -B package --file pom.xml
+      
+      - name: Set up QEMU
+        uses: docker/setup-qemu-action@v2
+      
       - name: Login to Docker Hub
         uses: docker/login-action@v2
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
+      
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v2
+      
       - name: Build and push
         uses: docker/build-push-action@v4
         with:
@@ -51,12 +56,14 @@ jobs:
 
       - name: Commit    
         run: |
-          git config --local user.email "action@github.com"
-          git config --local user.name "Github action"
-          git commit -am "Commit"
-
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git commit -a -m "Commit"
+         
       - name: Push changes
         uses: ad-m/github-push-action@master
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          force: true    
+          force: true   
+          branch: ${{ github.head_ref }}
+
