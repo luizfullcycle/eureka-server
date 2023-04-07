@@ -11,12 +11,12 @@ spec:
       app: eureka-server-deploys
   template:
     metadata:
-      matchLabels:
+      labels:
         app: eureka-server-deploys
     spec:
       containers:
         - name: eureka-server    
-          image: eureka-server
+          image: netoow10/eureka-server:latest
           ports:
             - containerPort: 8761
           livenessProbe:
@@ -36,12 +36,12 @@ spec:
             httpGet:
               path: /registry/actuator/health
               port: 8761
-            periodSeconds: 12
-            failureThreshold: 1
+            periodSeconds: 30
+            failureThreshold: 3
           resources:
             limits:
-              cpu: "300m"
-              memory: "256Mi"
-            requests:
               cpu: "500m"
               memory: "512Mi"
+            requests:
+              cpu: "300m"
+              memory: "256Mi"
