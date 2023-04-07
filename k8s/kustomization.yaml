@@ -6,4 +6,4 @@ resources:
 images:
 - name: eureka-server
   newName: netoow10/eureka-server
-  newTag: f17cf43ec8a68e7fe45f6037704bf3076b8e44c2
+  newTag: 8606ee26ad959e34256ab0f184142b9958214811
