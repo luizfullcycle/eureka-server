@@ -37,7 +37,7 @@ spec:
             httpGet:
               path: /registry/actuator/health/readiness
               port: 8761
-            periodSeconds: 12
+            periodSeconds: 20
             failureThreshold: 1
           resources:
             limits:
