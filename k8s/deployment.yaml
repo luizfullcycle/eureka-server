@@ -38,6 +38,7 @@ spec:
               port: 8761
             periodSeconds: 30
             failureThreshold: 3
+            initialDelaySeconds: 20
           resources:
             limits:
               cpu: "500m"
