@@ -6,10 +6,17 @@ spring:
   application:
     name: EUREKA-SERVER
 management:
+  health:
+    livenessstate:
+      enabled: true
+    readinessstate:
+      enabled: true
   endpoint:
     prometheus:
       enabled: true
     health:
+      probes:
+        enabled: true
       enabled: true
       show-details: ALWAYS
   endpoints:

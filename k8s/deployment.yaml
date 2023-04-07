@@ -19,25 +19,26 @@ spec:
           image: netoow10/eureka-server:latest
           ports:
             - containerPort: 8761
+              hostPort: 8761
           livenessProbe:
             httpGet:
-              path: /registry/actuator/health
+              path: /registry/actuator/health/liveness
               port: 8761
             periodSeconds: 5
             failureThreshold: 1  
             successThreshold: 1
           readinessProbe:
             httpGet:
-              path: /registry/actuator/health
+              path: /registry/actuator/health/readiness
               port: 8761
             periodSeconds: 3
             failureThreshold: 1
           startupProbe: 
             httpGet:
-              path: /registry/actuator/health
+              path: /registry/actuator/health/readiness
               port: 8761
-            periodSeconds: 30
-            failureThreshold: 3
+            periodSeconds: 12
+            failureThreshold: 1
           resources:
             limits:
               cpu: "500m"
